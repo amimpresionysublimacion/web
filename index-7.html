@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AM Impresión & Sublimación — Antonio Viera Martín</title>
+  <meta name="description" content="Impresión y sublimación premium en Las Palmas. Tazas, vinilos, cojines, puzzles, lienzos, tarjetas de visita y mucho más. Servicio a domicilio." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:      #0D0D0D;
+      --paper:    #F5F5F5;
+      --blue:     #4FC3F7;   /* M azul */
+      --magenta:  #E91E8C;
+      --yellow:   #F5C842;
+      --lime:     #8BC34A;
+      --white:    #FFFFFF;
+      --muted:    #888888;
+      --border:   rgba(255,255,255,0.08);
+      --ff-disp:  'Barlow Condensed', 'Impact', sans-serif;
+      --ff-body:  'DM Sans', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--ink);
+      color: var(--white);
+      font-family: var(--ff-body);
+      font-weight: 300;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.1rem 3rem;
+      background: rgba(13,13,13,0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: var(--ff-disp);
+      font-weight: 700;
+      font-size: 1.7rem;
+      letter-spacing: 0.02em;
+      text-decoration: none;
+      line-height: 1;
+    }
+    .nav-logo .a { color: var(--white); }
+    .nav-logo .m { color: var(--blue); }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--blue); }
+
+    .nav-cta {
+      font-family: var(--ff-body);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.55rem 1.4rem;
+      background: var(--blue);
+      color: var(--ink);
+      font-weight: 500;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .nav-cta:hover { opacity: 0.85; }
+
+    /* ─── PIXEL DECO ─── */
+    .pixels {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4px;
+      width: fit-content;
+    }
+    .px {
+      width: 14px;
+      height: 14px;
+    }
+    .px.m { background: var(--magenta); }
+    .px.b { background: var(--blue); }
+    .px.y { background: var(--yellow); }
+    .px.l { background: var(--lime); }
+    .px.e { background: transparent; }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100svh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-top: 4.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* pixel scatter background */
+    .hero-bg-pixels {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .bg-px {
+      position: absolute;
+      opacity: 0.12;
+    }
+
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 5rem 3rem 5rem 3rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 28px;
+      height: 2px;
+      background: var(--blue);
+    }
+
+    .hero-title {
+      font-family: var(--ff-disp);
+      font-size: clamp(3.8rem, 7vw, 7rem);
+      font-weight: 700;
+      line-height: 0.95;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+      margin-bottom: 1.8rem;
+    }
+    .hero-title .name-a { color: var(--white); }
+    .hero-title .name-m { color: var(--blue); }
+    .hero-title .subtitle {
+      display: block;
+      font-size: clamp(1.4rem, 2.5vw, 2rem);
+      font-weight: 300;
+      letter-spacing: 0.15em;
+      color: rgba(255,255,255,0.5);
+      margin-top: 0.5rem;
+      text-transform: uppercase;
+    }
+
+    .hero-sub {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.5);
+      max-width: 38ch;
+      line-height: 1.75;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: rgba(79,195,247,0.1);
+      border: 1px solid rgba(79,195,247,0.3);
+      padding: 0.55rem 1.1rem;
+      color: var(--blue);
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+      width: fit-content;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.9rem 2rem;
+      background: var(--blue);
+      color: var(--ink);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: opacity 0.2s;
+    }
+    .btn-primary:hover { opacity: 0.85; }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.9rem 2rem;
+      border: 1px solid rgba(255,255,255,0.2);
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-secondary:hover { border-color: var(--blue); color: var(--blue); }
+
+    /* hero right — identity card */
+    .hero-right {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 5rem 3rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .identity-card {
+      width: 100%;
+      max-width: 420px;
+      background: #111111;
+      border: 1px solid rgba(255,255,255,0.07);
+      padding: 3rem 2.5rem 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-pixel-tl {
+      position: absolute;
+      top: 1.5rem;
+      left: 1.5rem;
+    }
+    .card-pixel-br {
+      position: absolute;
+      bottom: 1.5rem;
+      right: 1.5rem;
+    }
+
+    .card-am {
+      font-family: var(--ff-disp);
+      font-size: 5rem;
+      font-weight: 700;
+      line-height: 1;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.02em;
+    }
+    .card-am .a { color: var(--white); }
+    .card-am .m { color: var(--blue); }
+
+    .card-name {
+      font-family: var(--ff-disp);
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 0.3rem;
+    }
+
+    .card-tagline {
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--yellow);
+      margin-bottom: 2rem;
+    }
+
+    .card-divider {
+      height: 1px;
+      background: linear-gradient(to right, var(--blue), transparent);
+      margin-bottom: 1.5rem;
+      opacity: 0.4;
+    }
+
+    .card-services {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+    .service-chip {
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      padding: 0.3rem 0.75rem;
+      border: 1px solid rgba(255,255,255,0.12);
+      color: rgba(255,255,255,0.6);
+      text-transform: uppercase;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .service-chip:hover { border-color: var(--blue); color: var(--blue); }
+
+    .card-contact a {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      color: rgba(255,255,255,0.55);
+      text-decoration: none;
+      font-size: 0.85rem;
+      padding: 0.4rem 0;
+      transition: color 0.2s;
+    }
+    .card-contact a:hover { color: var(--blue); }
+    .card-contact svg { flex-shrink: 0; }
+
+    /* ─── SECTION BASE ─── */
+    section { padding: 7rem 3rem; }
+
+    .section-tag {
+      font-size: 0.68rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--blue);
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      margin-bottom: 1.2rem;
+    }
+    .section-tag::before {
+      content: '';
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: var(--blue);
+    }
+
+    .section-title {
+      font-family: var(--ff-disp);
+      font-size: clamp(2.5rem, 4vw, 4rem);
+      font-weight: 700;
+      line-height: 1;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      max-width: 20ch;
+    }
+    .section-title .accent { color: var(--blue); }
+
+    /* ─── PRODUCTS ─── */
+    .products { background: #0D0D0D; }
+    .products-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 4rem;
+      gap: 2rem;
+    }
+    .products-note {
+      font-size: 0.87rem;
+      color: var(--muted);
+      max-width: 28ch;
+      text-align: right;
+      line-height: 1.6;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .product-card {
+      background: #0D0D0D;
+      padding: 2rem 1.6rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      transition: background 0.3s;
+      cursor: default;
+      position: relative;
+      overflow: hidden;
+    }
+    .product-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      height: 2px;
+      width: 0;
+      background: var(--blue);
+      transition: width 0.35s cubic-bezier(.16,1,.3,1);
+    }
+    .product-card:hover::after { width: 100%; }
+    .product-card:hover { background: #141414; }
+
+    .product-dot {
+      width: 10px;
+      height: 10px;
+      margin-bottom: 0.8rem;
+    }
+    .product-card:nth-child(1) .product-dot { background: var(--blue); }
+    .product-card:nth-child(2) .product-dot { background: var(--magenta); }
+    .product-card:nth-child(3) .product-dot { background: var(--yellow); }
+    .product-card:nth-child(4) .product-dot { background: var(--lime); }
+    .product-card:nth-child(5) .product-dot { background: var(--blue); }
+    .product-card:nth-child(6) .product-dot { background: var(--magenta); }
+    .product-card:nth-child(7) .product-dot { background: var(--yellow); }
+    .product-card:nth-child(8) .product-dot { background: var(--lime); }
+    .product-card:nth-child(9) .product-dot { background: var(--blue); }
+    .product-card:nth-child(10) .product-dot { background: var(--magenta); }
+    .product-card:nth-child(11) .product-dot { background: var(--yellow); }
+    .product-card:nth-child(12) .product-dot { background: var(--lime); }
+
+    .product-name {
+      font-family: var(--ff-disp);
+      font-size: 1.4rem;
+      font-weight: 600;
+      line-height: 1.1;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    .product-desc {
+      font-size: 0.81rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    /* ─── SERVICIOS A DOMICILIO ─── */
+    .domicilio {
+      background: var(--blue);
+      color: var(--ink);
+      padding: 5rem 3rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .dom-title {
+      font-family: var(--ff-disp);
+      font-size: clamp(2.5rem, 4.5vw, 4.5rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      line-height: 0.95;
+      letter-spacing: 0.01em;
+    }
+
+    .dom-body {
+      font-size: 1rem;
+      line-height: 1.75;
+      color: rgba(13,13,13,0.72);
+    }
+    .dom-body strong { color: var(--ink); }
+
+    .dom-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 2rem;
+    }
+    .dom-pill {
+      padding: 0.4rem 1rem;
+      background: rgba(13,13,13,0.12);
+      font-size: 0.76rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    /* ─── CUSTOM ─── */
+    .custom {
+      background: #111111;
+      text-align: center;
+      padding: 8rem 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .custom-pixels {
+      position: absolute;
+      top: 2rem; right: 3rem;
+      opacity: 0.25;
+    }
+    .custom-pixels2 {
+      position: absolute;
+      bottom: 2rem; left: 3rem;
+      opacity: 0.2;
+      transform: rotate(180deg);
+    }
+    .custom .section-tag { justify-content: center; }
+    .custom .section-tag::before { display: none; }
+    .custom .section-title { margin: 1rem auto 1.5rem; max-width: none; }
+    .custom-sub {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.45);
+      max-width: 45ch;
+      margin: 0 auto 3rem;
+      line-height: 1.7;
+    }
+    .custom-row {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    /* ─── PROCESS ─── */
+    .process { background: #0D0D0D; }
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      margin-top: 4rem;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .process-step {
+      background: #0D0D0D;
+      padding: 3rem 2.5rem;
+    }
+
+    .step-num {
+      font-family: var(--ff-disp);
+      font-size: 4rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.05);
+      line-height: 1;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+    }
+    .step-icon {
+      width: 8px;
+      height: 8px;
+      margin-bottom: 1.2rem;
+    }
+    .process-step:nth-child(1) .step-icon { background: var(--blue); }
+    .process-step:nth-child(2) .step-icon { background: var(--magenta); }
+    .process-step:nth-child(3) .step-icon { background: var(--lime); }
+
+    .step-title {
+      font-family: var(--ff-disp);
+      font-size: 1.5rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      margin-bottom: 0.8rem;
+    }
+    .step-desc { font-size: 0.87rem; color: var(--muted); line-height: 1.7; }
+
+    /* ─── CONTACT ─── */
+    .contact {
+      background: #111111;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 5rem;
+      padding: 7rem 3rem;
+      align-items: center;
+    }
+
+    .contact-title {
+      font-family: var(--ff-disp);
+      font-size: clamp(2.8rem, 5vw, 5rem);
+      font-weight: 700;
+      line-height: 0.95;
+      text-transform: uppercase;
+      letter-spacing: 0.01em;
+      margin-bottom: 1.5rem;
+    }
+    .contact-title .accent { color: var(--blue); }
+
+    .contact-sub {
+      font-size: 0.92rem;
+      color: rgba(255,255,255,0.4);
+      max-width: 38ch;
+      line-height: 1.7;
+    }
+
+    .contact-card {
+      background: #0D0D0D;
+      border: 1px solid rgba(255,255,255,0.07);
+      padding: 2.5rem;
+    }
+
+    .contact-method {
+      margin-bottom: 2rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .contact-method:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+
+    .contact-label {
+      font-size: 0.66rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-value {
+      font-family: var(--ff-disp);
+      font-size: 1.4rem;
+      font-weight: 400;
+      letter-spacing: 0.03em;
+      color: var(--white);
+      text-decoration: none;
+      transition: color 0.2s;
+      display: block;
+      word-break: break-all;
+    }
+    .contact-value:hover { color: var(--blue); }
+
+    .contact-note { font-size: 0.78rem; color: rgba(255,255,255,0.28); margin-top: 0.3rem; }
+
+    .whatsapp-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
+      margin-top: 2rem;
+      padding: 1rem 2rem;
+      background: #25D366;
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: opacity 0.25s;
+    }
+    .whatsapp-btn:hover { opacity: 0.88; }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: #060606;
+      color: rgba(255,255,255,0.2);
+      padding: 2rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.76rem;
+      letter-spacing: 0.04em;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .footer-brand {
+      font-family: var(--ff-disp);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.5);
+    }
+    .footer-brand .m { color: var(--blue); }
+
+    /* ─── REVEAL ─── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.65s cubic-bezier(.16,1,.3,1), transform 0.65s cubic-bezier(.16,1,.3,1);
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 960px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-left { padding: 7rem 1.5rem 3rem; }
+      .hero-right { padding: 2rem 1.5rem 4rem; }
+
+      section { padding: 5rem 1.5rem; }
+
+      .products-head { flex-direction: column; align-items: flex-start; }
+      .products-note { text-align: left; }
+      .products-grid { grid-template-columns: repeat(2, 1fr); }
+
+      .domicilio { grid-template-columns: 1fr; gap: 2rem; padding: 4rem 1.5rem; }
+
+      .process-grid { grid-template-columns: 1fr; }
+
+      .contact { grid-template-columns: 1fr; gap: 3rem; padding: 5rem 1.5rem; }
+
+      footer { padding: 1.5rem; text-align: center; justify-content: center; }
+    }
+
+    @media (max-width: 520px) {
+      .products-grid { grid-template-columns: 1fr; }
+      .hero-actions { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo"><span class="a">A</span><span class="m">M</span></a>
+    <ul class="nav-links">
+      <li><a href="#productos">Productos</a></li>
+      <li><a href="#proceso">Proceso</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <a href="https://wa.me/34671522505" target="_blank" rel="noopener" class="nav-cta">Presupuesto gratis</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <!-- bg scattered pixels -->
+    <div class="hero-bg-pixels" aria-hidden="true">
+      <div class="bg-px" style="width:18px;height:18px;background:#4FC3F7;top:15%;left:48%"></div>
+      <div class="bg-px" style="width:12px;height:12px;background:#E91E8C;top:30%;left:52%"></div>
+      <div class="bg-px" style="width:22px;height:22px;background:#F5C842;top:65%;left:46%"></div>
+      <div class="bg-px" style="width:10px;height:10px;background:#8BC34A;top:80%;left:54%"></div>
+      <div class="bg-px" style="width:16px;height:16px;background:#E91E8C;top:12%;right:5%"></div>
+      <div class="bg-px" style="width:20px;height:20px;background:#F5C842;bottom:20%;right:8%"></div>
+    </div>
+
+    <div class="hero-left">
+      <p class="hero-eyebrow reveal">Impresión &amp; Sublimación · Las Palmas</p>
+
+      <h1 class="hero-title reveal">
+        <span class="name-a">A</span><span class="name-m">M</span>
+        <span class="subtitle">Impresión &amp; Sublimación</span>
+      </h1>
+
+      <div class="hero-badge reveal">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        Servicios a domicilio · Presupuestos sin compromiso
+      </div>
+
+      <p class="hero-sub reveal">
+        Transformamos tus diseños en objetos con identidad. Impresión de alta resolución en tazas, vinilos, lienzos, cojines, tarjetas de visita y mucho más. Si no lo tenemos, lo encontramos.
+      </p>
+
+      <div class="hero-actions reveal">
+        <a href="https://wa.me/34671522505?text=Hola%20Antonio%2C%20me%20gustaría%20solicitar%20un%20presupuesto" target="_blank" rel="noopener" class="btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.122.556 4.112 1.528 5.836L0 24l6.336-1.508A11.93 11.93 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.017-1.382l-.36-.214-3.727.977.997-3.645-.234-.374A9.818 9.818 0 1112 21.818z"/></svg>
+          WhatsApp directo
+        </a>
+        <a href="#productos" class="btn-secondary">
+          Ver catálogo
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Identity card -->
+    <div class="hero-right">
+      <div class="identity-card reveal">
+        <!-- pixel decorations -->
+        <div class="card-pixel-tl" aria-hidden="true">
+          <div class="pixels">
+            <div class="px e"></div><div class="px m"></div><div class="px e"></div>
+            <div class="px y"></div><div class="px m"></div><div class="px b"></div>
+            <div class="px b"></div><div class="px y"></div><div class="px l"></div>
+            <div class="px l"></div><div class="px e"></div><div class="px m"></div>
+          </div>
+        </div>
+
+        <div class="card-am">
+          <span class="a">A</span><span class="m">M</span>
+        </div>
+
+        <div class="card-name">Antonio Viera Martín</div>
+        <div class="card-tagline">Todo tipo de Impresiones</div>
+
+        <div class="card-divider"></div>
+
+        <div class="card-services">
+          <span class="service-chip">Sublimación</span>
+          <span class="service-chip">Vinilos</span>
+          <span class="service-chip">Lienzos</span>
+          <span class="service-chip">Flyers</span>
+          <span class="service-chip">Tarjetas de visita</span>
+          <span class="service-chip">Encuadernaciones</span>
+          <span class="service-chip">Tazas</span>
+          <span class="service-chip">Puzzles</span>
+          <span class="service-chip">Cojines</span>
+          <span class="service-chip">+ más</span>
+        </div>
+
+        <div class="card-contact">
+          <a href="https://wa.me/34671522505" target="_blank" rel="noopener">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.122.556 4.112 1.528 5.836L0 24l6.336-1.508A11.93 11.93 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.017-1.382l-.36-.214-3.727.977.997-3.645-.234-.374A9.818 9.818 0 1112 21.818z"/></svg>
+            671 522 505
+          </a>
+          <a href="mailto:amimpresionysublimacion@gmail.com">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            amimpresionysublimacion@gmail.com
+          </a>
+        </div>
+
+        <div class="card-pixel-br" aria-hidden="true">
+          <div class="pixels">
+            <div class="px b"></div><div class="px e"></div><div class="px m"></div>
+            <div class="px l"></div><div class="px y"></div><div class="px e"></div>
+            <div class="px m"></div><div class="px b"></div><div class="px l"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section class="products" id="productos">
+    <div class="products-head reveal">
+      <div>
+        <span class="section-tag">Catálogo</span>
+        <h2 class="section-title">Lo que <span class="accent">creamos</span> para ti</h2>
+      </div>
+      <p class="products-note">¿No encuentras lo que buscas? Consulta sin compromiso — si no lo tenemos, lo encontramos.</p>
+    </div>
+
+    <div class="products-grid reveal">
+      <div class="product-card">
+        <div class="product-dot"></div>
+        <div class="product-name">Tazas</div>
+        <p class="product-desc">Sublimación de alta resolución. Colores vivos resistentes al lavavajillas. Perfectas para regalo y merchandising.</p>
+      </div>
+      <div class="product-card">
+        <div class="product-dot"></div>
+        <div class="product-name">Vinilos</div>
+        <p class="product-desc">Adhesivos de precisión para escaparates, vehículos y paredes. Corte exacto al milímetro.</p>
+      </div>
+      <div class="product-card">
+        <div class="product-dot"></div>
+        <div class="product-name">Lienzos</div>
+        <p class="product-desc">Tus fotografías o diseños sobre lienzo tensado. Arte para el hogar con acabado de galería.</p>
+      </div>
+      <div class="product-card">
+        <div class="product-dot"></div>
+        <div class="product-name">Cojines</div>
+        <p class="product-desc">Sublimación en textil de calidad. Diseños que mantienen el color lavado tras lavado.</p>
+      </div>
+      <div class="product-card">
+        <div class="product-dot"></div>
+        <div class="product-name">Puzzles</div>
+        <p class="product-desc">Tu imagen favorita convertida en puzzle personalizado. El regalo más original y emotivo.</p>
+      </div>
+      <div class="product-card">
+        <div class="product-dot"></div>
+        <div class="product-name">Cartón Pluma</div>
+        <p class="product-desc">Soporte rígido y ligero para displays, señalética y exposiciones. Bordes perfectos.</p>
+      </div>
+      <div class="product-card">
+        <div class="product-dot"></div>
+        <div class="product-name">Piedras</div>
+        <p class="product-desc">Impresión sobre piedra natural. Piezas únicas de decoración con textura genuina.</p>
+      </div>
+      <div class="product-card">
+        <div class="product-dot"></div>
+        <div class="product-name">Flyers</div>
+        <p class="product-desc">Impresión de alta calidad para publicidad y promociones. Acabados mate, brillo o barniz.</p>
+      </div>
+      <div class="product-card">
+        <div class="product-dot"></div>
+        <div class="product-name">Tarjetas de Visita</div>
+        <p class="product-desc">Tu imagen profesional en formato de bolsillo. Diseño e impresión premium.</p>
+      </div>
+      <div class="product-card">
+        <div class="product-dot"></div>
+        <div class="product-name">Encuadernaciones</div>
+        <p class="product-desc">Libros, catálogos y documentos encuadernados con acabado profesional y duradero.</p>
+      </div>
+      <div class="product-card">
+        <div class="product-dot"></div>
+        <div class="product-name">Sublimación</div>
+        <p class="product-desc">Técnica de impresión permanente en múltiples soportes. Colores que no se van nunca.</p>
+      </div>
+      <div class="product-card">
+        <div class="product-dot"></div>
+        <div class="product-name">Y mucho más</div>
+        <p class="product-desc">¿Tienes algo especial en mente? Escríbenos. Trabajamos con muchos materiales y soportes.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICIOS A DOMICILIO -->
+  <div class="domicilio reveal">
+    <div>
+      <h2 class="dom-title">Servicios<br>a<br>Domicilio</h2>
+    </div>
+    <div>
+      <p class="dom-body">
+        Llevamos nuestro trabajo hasta ti. <strong>Sin necesidad de desplazarte</strong>, recogemos archivos, resolvemos dudas y entregamos el producto terminado donde nos necesites.
+        <br><br>
+        Presupuestos sin compromiso. Respuesta rápida. Sin letra pequeña.
+      </p>
+      <div class="dom-pills">
+        <span class="dom-pill">📍 Las Palmas</span>
+        <span class="dom-pill">🚐 Servicio a domicilio</span>
+        <span class="dom-pill">📦 Envíos Canarias</span>
+        <span class="dom-pill">💬 WhatsApp directo</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- CUSTOM CTA -->
+  <div class="custom">
+    <div class="custom-pixels" aria-hidden="true">
+      <div class="pixels" style="gap:5px;">
+        <div class="px e"></div><div class="px m" style="width:18px;height:18px;"></div><div class="px e"></div>
+        <div class="px b" style="width:18px;height:18px;"></div><div class="px e"></div><div class="px y" style="width:18px;height:18px;"></div>
+        <div class="px e"></div><div class="px l" style="width:18px;height:18px;"></div><div class="px e"></div>
+      </div>
+    </div>
+    <div class="custom-pixels2" aria-hidden="true">
+      <div class="pixels" style="gap:4px;">
+        <div class="px y" style="width:14px;height:14px;"></div><div class="px e"></div><div class="px b" style="width:14px;height:14px;"></div>
+        <div class="px e"></div><div class="px m" style="width:14px;height:14px;"></div><div class="px e"></div>
+      </div>
+    </div>
+    <span class="section-tag reveal">Proyectos especiales</span>
+    <h2 class="section-title reveal">¿Tienes algo<br><span class="accent">diferente</span> en mente?</h2>
+    <p class="custom-sub reveal">No ponemos límites a la creatividad. Si no lo tenemos, lo encontramos. Trae tu idea y la hacemos realidad.</p>
+    <div class="custom-row reveal">
+      <a href="https://wa.me/34671522505?text=Hola%2C%20tengo%20una%20idea%20para%20un%20proyecto%20personalizado" target="_blank" rel="noopener" class="btn-primary">Cuéntanos tu proyecto</a>
+      <a href="mailto:amimpresionysublimacion@gmail.com" class="btn-secondary">Enviar email</a>
+    </div>
+  </div>
+
+  <!-- PROCESS -->
+  <section class="process" id="proceso">
+    <span class="section-tag reveal">Cómo trabajamos</span>
+    <h2 class="section-title reveal">Simple, <span class="accent">rápido</span><br>y sin sorpresas</h2>
+    <div class="process-grid reveal">
+      <div class="process-step">
+        <div class="step-num">01</div>
+        <div class="step-icon"></div>
+        <div class="step-title">Nos cuentas tu idea</div>
+        <p class="step-desc">Escríbenos por WhatsApp o email con tu diseño o concepto. Si no tienes archivo preparado, también orientamos con el diseño.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">02</div>
+        <div class="step-icon"></div>
+        <div class="step-title">Recibes presupuesto</div>
+        <p class="step-desc">Precio y plazo sin compromiso. Transparencia total: sin costes ocultos ni sorpresas. Aprobado tú, empezamos.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">03</div>
+        <div class="step-icon"></div>
+        <div class="step-title">Producción y entrega</div>
+        <p class="step-desc">Fabricamos con los mejores materiales y controlamos la calidad pieza a pieza. Entregamos a domicilio o por envío.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contacto">
+    <div class="reveal">
+      <h2 class="contact-title">Hablemos<br>de tu <span class="accent">proyecto.</span></h2>
+      <p class="contact-sub">Sin formularios. Sin esperas. Escríbenos directamente y te respondemos a la mayor brevedad.</p>
+    </div>
+
+    <div class="contact-card reveal">
+      <div class="contact-method">
+        <p class="contact-label">WhatsApp directo</p>
+        <a href="https://wa.me/34671522505" target="_blank" rel="noopener" class="contact-value">671 522 505</a>
+        <p class="contact-note">Respuesta rápida en horario comercial</p>
+      </div>
+      <div class="contact-method">
+        <p class="contact-label">Correo electrónico</p>
+        <a href="mailto:amimpresionysublimacion@gmail.com" class="contact-value" style="font-size:0.95rem;">amimpresionysublimacion@gmail.com</a>
+        <p class="contact-note">Para presupuestos detallados y envío de archivos</p>
+      </div>
+      <div class="contact-method">
+        <p class="contact-label">Zona de cobertura</p>
+        <span class="contact-value" style="pointer-events:none; font-size:1.1rem;">Las Palmas de Gran Canaria</span>
+        <p class="contact-note">Servicios a domicilio · Envíos a toda Canarias</p>
+      </div>
+      <a href="https://wa.me/34671522505?text=Hola%20Antonio%2C%20me%20gustaría%20solicitar%20información%20y%20presupuesto" target="_blank" rel="noopener" class="whatsapp-btn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.122.556 4.112 1.528 5.836L0 24l6.336-1.508A11.93 11.93 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.017-1.382l-.36-.214-3.727.977.997-3.645-.234-.374A9.818 9.818 0 1112 21.818z"/></svg>
+        Abrir WhatsApp ahora
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-brand"><span>A</span><span class="m">M</span> Impresión &amp; Sublimación</div>
+    <div>© 2025 Antonio Viera Martín · Las Palmas de Gran Canaria</div>
+    <div>671 522 505 · amimpresionysublimacion@gmail.com</div>
+  </footer>
+
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
+
+    // stagger grid children
+    document.querySelectorAll('.products-grid, .process-grid').forEach(parent => {
+      [...parent.children].forEach((child, i) => {
+        child.style.transitionDelay = `${i * 0.055}s`;
+      });
+    });
+  </script>
+</body>
+</html>
